@@ -31,7 +31,7 @@ export const getMyTask = async (req, res, next) => {
   }
 };
 
-export const updateTask = async (req, res) => {
+export const updateTask = async (req, res,next) => {
   try {
     const { id } = req.params;
 
@@ -53,7 +53,7 @@ export const updateTask = async (req, res) => {
   }
 };
 
-export const deleteTask = async (req, res) => {
+export const deleteTask = async (req, res,next) => {
   try {
     const { id } = req.params;
 

@@ -4,7 +4,7 @@ import { sendCookie } from "../utils/feature.js";
 import ErrorHandler from "../middlewa/error.js";
 
 // getting all the users
-export const logout = async (req, res) => {
+export const logout = async (req, res,next) => {
   try {
     res
       .status(200)
@@ -21,7 +21,7 @@ export const logout = async (req, res) => {
 };
 
 // creating a new user
-export const createUser = async (req, res) => {
+export const createUser = async (req, res ,next) => {
   try {
     const { name, email, password } = req.body;
 
@@ -40,7 +40,7 @@ export const createUser = async (req, res) => {
   }
 };
 
-export const findUser = (req, res) => {
+export const findUser = (req, res,next) => {
   console.log(req.user);
   try {
     res.status(200).json({
@@ -52,7 +52,7 @@ export const findUser = (req, res) => {
   }
 };
 
-export const login = async (req, res) => {
+export const login = async (req, res,next) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email }).select("+password");
