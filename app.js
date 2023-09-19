@@ -30,7 +30,7 @@ mongoose
   .connect(process.env.MONGO_URI, {
     dbName: "backend",
   })
-  .then(() => console.log("Database Connected"))
+  .then((c) => console.log(`Database Connected ${c.connection.host}`))
   .catch((e) => console.log(e));
 
 app.get("/", (req, res) => {
